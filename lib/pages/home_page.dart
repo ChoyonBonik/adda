@@ -39,7 +39,6 @@ class _HomePageState extends State<HomePage> {
     return res.substring(res.indexOf("_") + 1);
   }
 
-
   gettingUserData() async {
     await HelperFunctions.getUserEmailFromSF().then((value) {
       setState(() {
@@ -289,24 +288,16 @@ class _HomePageState extends State<HomePage> {
           if (snapshot.data['groups'] != null) {
             if (snapshot.data['groups'].length != 0) {
               return ListView.builder(
-                itemCount: snapshot.data['groups'].length,
-                  itemBuilder: (context , index){
-                  int reverseIndex = snapshot.data['groups'].length - index - 1;
-                return GroupTile(
-                    groupId: getId(snapshot.data['groups'][reverseIndex]),
-                    groupName: getName(snapshot.data['groups'][reverseIndex]),
-                    userName: snapshot.data['fullName']);
-              });
-              //   ListView.builder(
-              //   itemCount: snapshot.data['groups'].length,
-              //   itemBuilder: (context, index) {
-              //     int reverseIndex = snapshot.data['groups'].length - index - 1;
-              //     return GroupTile(
-              //         groupId: getId(snapshot.data['groups'][reverseIndex]),
-              //         groupName: getName(snapshot.data['groups'][reverseIndex]),
-              //         userName: snapshot.data['fullName']);
-              //   },
-              // );
+                  itemCount: snapshot.data['groups'].length,
+                  itemBuilder: (context, index) {
+                    int reverseIndex =
+                        snapshot.data['groups'].length - index - 1;
+                    return GroupTile(
+                        groupId: getId(snapshot.data['groups'][reverseIndex]),
+                        groupName:
+                            getName(snapshot.data['groups'][reverseIndex]),
+                        userName: snapshot.data['fullName']);
+                  });
             } else {
               return noGroupWidget();
             }

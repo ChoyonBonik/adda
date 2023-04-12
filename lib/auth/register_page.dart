@@ -169,21 +169,21 @@ class _RegisterPageState extends State<RegisterPage> {
       setState(() {
         _isLoading = true;
       });
-      await authService.registerUserWithEmailandPassword(fullName, email, password).then((value) async{
-        if(value == true) {
+      await authService
+          .registerUserWithEmailandPassword(fullName, email, password)
+          .then((value) async {
+        if (value == true) {
           await HelperFunctions.saveUserLoggedInStatus(true);
           await HelperFunctions.saveUserEmailSF(email);
           await HelperFunctions.saveUserNameSF(fullName);
           nextScreenReplace(context, const HomePage());
-
         } else {
           showSnackbar(context, Colors.red, value);
-          setState((){
+          setState(() {
             _isLoading = false;
           });
         }
       });
-
     }
   }
 }
