@@ -21,7 +21,7 @@ class _ChatPageState extends State<ChatPage> {
     return Scaffold(
       body: Center(
         child: Text(
-          widget.groupName
+          widget.groupName,
         ),
       ),
     );
