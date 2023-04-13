@@ -176,6 +176,22 @@ class _HomePageState extends State<HomePage> {
               "Logout",
               style: TextStyle(color: Colors.black),
             ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 370,
+              left: 60
+            ),
+            child: Row(
+              children: [
+                Icon(Icons.copyright, color: Colors.black26, size: 22),
+                Text('2023 Choyon Bonik',
+                style: TextStyle(
+                  color: Colors.black26,
+                  fontSize: 14
+                )),
+              ],
+            ),
           )
         ],
       )),

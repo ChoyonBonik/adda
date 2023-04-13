@@ -48,74 +48,88 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        elevation: 0,
-        title: Text(widget.groupName),
-        backgroundColor: Theme.of(context).primaryColor,
-        actions: [
-          IconButton(
-              onPressed: () {
-                nextScreen(
-                    context,
-                    GroupInfo(
-                      groupId: widget.groupId,
-                      groupName: widget.groupName,
-                      adminName: admin,
-                    ));
-              },
-              icon: const Icon(Icons.info))
-        ],
-      ),
-      body: Stack(
-        children: <Widget>[
-          // chat messages here
-          chatMessages(),
-          Container(
-            alignment: Alignment.bottomCenter,
-            width: MediaQuery.of(context).size.width,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
-              width: MediaQuery.of(context).size.width,
-              color: Colors.grey[700],
-              child: Row(children: [
-                Expanded(
-                    child: TextFormField(
-                  controller: messageController,
-                  style: const TextStyle(color: Colors.white),
-                  decoration: const InputDecoration(
-                    hintText: "Send a message...",
-                    hintStyle: TextStyle(color: Colors.white, fontSize: 16),
-                    border: InputBorder.none,
-                  ),
-                )),
-                const SizedBox(
-                  width: 12,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    sendMessage();
-                  },
-                  child: Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
-                      borderRadius: BorderRadius.circular(30),
+        resizeToAvoidBottomInset: true,
+        appBar: AppBar(
+          centerTitle: true,
+          elevation: 0,
+          title: Text(widget.groupName),
+          backgroundColor: Theme.of(context).primaryColor,
+          actions: [
+            IconButton(
+                onPressed: () {
+                  nextScreen(
+                      context,
+                      GroupInfo(
+                        groupId: widget.groupId,
+                        groupName: widget.groupName,
+                        adminName: admin,
+                      ));
+                },
+                icon: const Icon(Icons.info))
+          ],
+        ),
+        body: Stack(
+          children: <Widget>[
+            chatMessages(),
+            Container(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                height: 74,
+                color: Colors.green,
+                child: Row(
+                  children: [
+                    Container(
+                      // height: 45,
+                      margin: EdgeInsets.all(15),
+                      padding: EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 15,
+                      ),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 45,
+                            width: 260,
+                            child: TextFormField(
+                              controller: messageController,
+                              style: TextStyle(fontSize: 17),
+                              decoration: InputDecoration(
+                                  contentPadding: EdgeInsets.only(bottom: 11),
+                                  hintText: 'Message',
+                                  border: InputBorder.none),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                    child: const Center(
-                        child: Icon(
-                      Icons.send,
-                      color: Colors.white,
-                    )),
-                  ),
-                )
-              ]),
+                    GestureDetector(
+                      onTap: () {
+                        sendMessage();
+                      },
+                      child: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).primaryColor,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: const Center(
+                            child: Icon(
+                          Icons.send,
+                          color: Colors.white,
+                        )),
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ),
-          )
-        ],
-      ),
-    );
+          ],
+        ));
   }
 
   chatMessages() {
@@ -124,6 +138,7 @@ class _ChatPageState extends State<ChatPage> {
       builder: (context, AsyncSnapshot snapshot) {
         return snapshot.hasData
             ? ListView.builder(
+                padding: EdgeInsets.only(bottom: 75),
                 itemCount: snapshot.data.docs.length,
                 itemBuilder: (context, index) {
                   return MessageTile(

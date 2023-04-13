@@ -34,7 +34,8 @@ class _GroupTileState extends State<GroupTile> {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
         child: ListTile(
-          leading: CircleAvatar(
+          leading:
+          CircleAvatar(
             radius: 30,
             backgroundColor: Theme.of(context).primaryColor,
             child: Text(
