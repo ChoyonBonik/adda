@@ -37,7 +37,7 @@ class _ProfilePageState extends State<ProfilePage> {
           Icon(
             Icons.account_circle,
             size: 150,
-            color: Colors.grey[700],
+            color:secondaryColor,
           ),
           const SizedBox(
             height: 15,
@@ -131,7 +131,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Icon(
               Icons.account_circle,
               size: 200,
-              color: Colors.grey[700],
+              color: secondaryColor,
             ),
             const SizedBox(
               height: 35,
