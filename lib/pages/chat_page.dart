@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_app/shared/constants.dart';
 
 import '../services/database_service.dart';
 import '../widget/message_tile.dart';
@@ -53,7 +54,7 @@ class _ChatPageState extends State<ChatPage> {
           centerTitle: true,
           elevation: 0,
           title: Text(widget.groupName),
-          backgroundColor: Theme.of(context).primaryColor,
+          backgroundColor: primaryColor,
           actions: [
             IconButton(
                 onPressed: () {
@@ -75,7 +76,7 @@ class _ChatPageState extends State<ChatPage> {
               alignment: Alignment.bottomCenter,
               child: Container(
                 height: 74,
-                color: Colors.green,
+                color: secondaryColor,
                 child: Row(
                   children: [
                     Container(
@@ -87,7 +88,6 @@ class _ChatPageState extends State<ChatPage> {
                       ),
                       decoration: BoxDecoration(
                           color: Colors.white,
-                          border: Border.all(color: Colors.black),
                           borderRadius: BorderRadius.circular(30)),
                       child: Row(
                         children: [
@@ -114,7 +114,7 @@ class _ChatPageState extends State<ChatPage> {
                         height: 50,
                         width: 50,
                         decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColor,
+                          color: primaryColor,
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: const Center(

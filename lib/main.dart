@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_app/helper/helper_function.dart';
 import 'package:flutter_chat_app/pages/home_page.dart';
+import 'package:flutter_chat_app/pages/splash_page.dart';
 import 'package:flutter_chat_app/shared/constants.dart';
 
 import 'auth/login_page.dart';
@@ -42,9 +43,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          primaryColor: Constants().primaryColor,
+          primaryColor: primaryColor,
           scaffoldBackgroundColor: Colors.white),
-      home: _isSignedIn ? const HomePage() : const LoginPage(),
+      home: _isSignedIn ? const HomePage() : const SplashPage(),
     );
   }
 }

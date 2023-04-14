@@ -8,6 +8,7 @@ import 'package:flutter_chat_app/widget/group_tile.dart';
 import '../auth/login_page.dart';
 import '../helper/helper_function.dart';
 import '../services/database_service.dart';
+import '../shared/constants.dart';
 import '../widget/widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -74,7 +75,7 @@ class _HomePageState extends State<HomePage> {
         ],
         elevation: 0,
         centerTitle: true,
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: primaryColor,
         title: const Text(
           "Groups",
           style: TextStyle(
@@ -106,7 +107,7 @@ class _HomePageState extends State<HomePage> {
           ),
           ListTile(
             onTap: () {},
-            selectedColor: Theme.of(context).primaryColor,
+            selectedColor: primaryColor,
             selected: true,
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -201,7 +202,7 @@ class _HomePageState extends State<HomePage> {
           popUpDialog(context);
         },
         elevation: 0,
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: primaryColor,
         child: const Icon(
           Icons.add,
           color: Colors.white,
@@ -228,7 +229,7 @@ class _HomePageState extends State<HomePage> {
                   _isLoading == true
                       ? Center(
                           child: CircularProgressIndicator(
-                              color: Theme.of(context).primaryColor),
+                              color: primaryColor),
                         )
                       : TextField(
                           onChanged: (val) {
@@ -240,7 +241,7 @@ class _HomePageState extends State<HomePage> {
                           decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                  color: Theme.of(context).primaryColor),
+                                  color: primaryColor),
                               borderRadius: BorderRadius.circular(20),
                             ),
                             errorBorder: OutlineInputBorder(
@@ -251,7 +252,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                  color: Theme.of(context).primaryColor),
+                                  color: primaryColor),
                               borderRadius: BorderRadius.circular(20),
                             ),
                           ),
@@ -265,7 +266,7 @@ class _HomePageState extends State<HomePage> {
                   },
                   child: Text('CANCLE'),
                   style: ElevatedButton.styleFrom(
-                      primary: Theme.of(context).primaryColor),
+                      primary: secondaryColor),
                 ),
                 ElevatedButton(
                   onPressed: () async {
@@ -287,7 +288,7 @@ class _HomePageState extends State<HomePage> {
                   },
                   child: Text('CREATE'),
                   style: ElevatedButton.styleFrom(
-                      primary: Theme.of(context).primaryColor),
+                      primary: primaryColor),
                 ),
               ],
             );
@@ -323,7 +324,7 @@ class _HomePageState extends State<HomePage> {
         } else {
           return Center(
             child: CircularProgressIndicator(
-                color: Theme.of(context).primaryColor),
+                color: primaryColor),
           );
         }
       },
@@ -343,7 +344,7 @@ class _HomePageState extends State<HomePage> {
             },
             child: Icon(
               Icons.add_circle,
-              color: Colors.grey[700],
+              color: primaryColor,
               size: 75,
             ),
           ),

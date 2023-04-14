@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../auth/login_page.dart';
 import '../services/auth_service.dart';
+import '../shared/constants.dart';
 import '../widget/widget.dart';
 import 'home_page.dart';
 
@@ -21,12 +22,12 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: primaryColor,
         elevation: 0,
-        title: const Text(
-          "Profile",
+        title: Text(
+            widget.userName,
           style: TextStyle(
-              color: Colors.white, fontSize: 27, fontWeight: FontWeight.bold),
+              color: Colors.white, fontSize: 22, fontWeight: FontWeight.w500),
         ),
       ),
       drawer: Drawer(
@@ -44,7 +45,7 @@ class _ProfilePageState extends State<ProfilePage> {
           Text(
             widget.userName,
             textAlign: TextAlign.center,
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: primaryColor),
           ),
           const SizedBox(
             height: 30,
@@ -67,7 +68,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ListTile(
             onTap: () {},
             selected: true,
-            selectedColor: Theme.of(context).primaryColor,
+            selectedColor: primaryColor,
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
             leading: const Icon(Icons.group),
@@ -123,7 +124,7 @@ class _ProfilePageState extends State<ProfilePage> {
         ],
       )),
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 170),
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 150),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -133,7 +134,7 @@ class _ProfilePageState extends State<ProfilePage> {
               color: Colors.grey[700],
             ),
             const SizedBox(
-              height: 15,
+              height: 35,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

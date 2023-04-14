@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_app/widget/widget.dart';
 
 import '../pages/chat_page.dart';
+import '../shared/constants.dart';
 
 class GroupTile extends StatefulWidget {
   final String userName;
@@ -37,12 +38,12 @@ class _GroupTileState extends State<GroupTile> {
           leading:
           CircleAvatar(
             radius: 30,
-            backgroundColor: Theme.of(context).primaryColor,
+            backgroundColor: secondaryColor,
             child: Text(
               widget.groupName.substring(0, 1).toUpperCase(),
               textAlign: TextAlign.center,
               style: const TextStyle(
-                  color: Colors.white, fontWeight: FontWeight.w500),
+                  color: Colors.white, fontWeight: FontWeight.w500, fontSize: 22),
             ),
           ),
           title: Text(

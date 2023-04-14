@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
 
-class Constants {
-  final primaryColor = const Color(0xFFee7b64);
-}
+const primaryColor = Color(0xFFA060FF);
+const secondaryColor = Color(0xFF00E4E3);

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../helper/helper_function.dart';
 import '../services/database_service.dart';
+import '../shared/constants.dart';
 import '../widget/widget.dart';
 import 'chat_page.dart';
 
@@ -51,7 +52,7 @@ class _SearchPageState extends State<SearchPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: primaryColor,
         title: const Text(
           "Search",
           style: TextStyle(
@@ -61,7 +62,7 @@ class _SearchPageState extends State<SearchPage> {
       body: Column(
         children: [
           Container(
-            color: Theme.of(context).primaryColor,
+            color: primaryColor,
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: Row(
               children: [
@@ -98,7 +99,7 @@ class _SearchPageState extends State<SearchPage> {
           isLoading
               ? Center(
                   child: CircularProgressIndicator(
-                      color: Theme.of(context).primaryColor),
+                      color: primaryColor),
                 )
               : groupList(),
         ],
@@ -159,7 +160,7 @@ class _SearchPageState extends State<SearchPage> {
       contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       leading: CircleAvatar(
         radius: 30,
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: secondaryColor,
         child: Text(
           groupName.substring(0, 1).toUpperCase(),
           style: const TextStyle(color: Colors.white),
@@ -196,7 +197,7 @@ class _SearchPageState extends State<SearchPage> {
             ? Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.black,
+                  color: secondaryColor,
                   border: Border.all(color: Colors.white, width: 1),
                 ),
                 padding:
@@ -209,7 +210,7 @@ class _SearchPageState extends State<SearchPage> {
             : Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Theme.of(context).primaryColor,
+                  color: primaryColor,
                 ),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
